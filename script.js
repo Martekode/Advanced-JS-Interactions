@@ -22,6 +22,14 @@ for (let i = 0; i<imgContainer.length;i++){
     image.classList.add('picture');
     image.addEventListener('click',function(){
         console.log(`jajaze ${i}`);
+        this.style.position = "absolute";
+        this.style.transform = "scale(1.5)";
+        this.style.zIndex = "100";
+        this.addEventListener('mouseout',function(){
+            this.style.position = "relative";
+            this.style.transform = "scale(1)";
+            this.style.zIndex = "unset";
+        })
     })
     imgContainer[i].appendChild(image);
 }
