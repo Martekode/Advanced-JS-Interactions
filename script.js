@@ -29,7 +29,10 @@ for (let i = 0; i<imgContainer.length;i++){
         p.innerText = `this is picture nr:${i} and they are friends.`;
         p.style.color = "black";
         p.style.position = "absolute";
-        p.style.display = "block";
+        if (p.style.display == "none"){
+            p.style.display = "block";
+        }
+        
         //const paragrave = imgContainer[i].querySelector('p');
         //paragrave.style.zIndex = "101";
         //paragrave.style.color = "red";
@@ -44,7 +47,7 @@ for (let i = 0; i<imgContainer.length;i++){
                 this.style.position = "relative";
                 this.style.transform = "scale(1)";
                 this.style.zIndex = "unset";
-                if(imgContainer[i].querySelector('p')){
+                if(p.style.display == "block"){
                     p.style.display= "none";
                 }
                 
@@ -56,4 +59,26 @@ for (let i = 0; i<imgContainer.length;i++){
     })
     imgContainer[i].appendChild(image);
 }
-console.log(imgContainer)
+const carouselContainer = document.getElementById('carouselContainer');
+const images = ["./banner1.png","./banner2.jpg"];
+const image = document.createElement('img');
+image.src = images[0];
+image.style.height = "inherit";
+image.style.width = "inherit";
+let isOldImg = false;
+if (!carouselContainer.querySelector('img')){
+    carouselContainer.appendChild(image);
+}
+let carouselLoop = setInterval(() => { 
+    //console.log(image.src);
+    //console.log(images[1]);
+    if (!isOldImg){
+        image.src = images[1];
+        isOldImg = true;
+    }else{
+        image.src = images[0];
+        isOldImg = false;
+    }
+    
+    //console.log(image.src);
+}, 5000);
