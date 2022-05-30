@@ -17,7 +17,7 @@ const imgContainer = document.getElementsByClassName('image');
 console.log(imgContainer)
 for (let i = 0; i<imgContainer.length;i++){
     const image = document.createElement('img');
-    
+    let clicked = false;
     image.src = `./friends.jpg`;
     image.alt = "these are friends"
     image.classList.add('picture');
@@ -29,6 +29,7 @@ for (let i = 0; i<imgContainer.length;i++){
         p.innerText = `this is picture nr:${i} and they are friends.`;
         p.style.color = "black";
         p.style.position = "absolute";
+        p.style.display = "block";
         //const paragrave = imgContainer[i].querySelector('p');
         //paragrave.style.zIndex = "101";
         //paragrave.style.color = "red";
@@ -36,16 +37,22 @@ for (let i = 0; i<imgContainer.length;i++){
         this.style.transform = "scale(1.5)";
         this.style.zIndex = "100";
         //console.log(image[1])
-        imgContainer[i].appendChild(p);
-        this.addEventListener('mouseout',function(){
-            this.style.position = "relative";
-            this.style.transform = "scale(1)";
-            this.style.zIndex = "unset";
-            if(imgContainer[i].querySelector('p')){
-                imgContainer[i].removeChild(p);
-            }
-            
-        })
+        if (!clicked){
+            imgContainer[i].appendChild(p);
+            this.addEventListener('mouseout',function(){
+                //console.log(p)
+                this.style.position = "relative";
+                this.style.transform = "scale(1)";
+                this.style.zIndex = "unset";
+                if(imgContainer[i].querySelector('p')){
+                    p.style.display= "none";
+                }
+                
+            })
+        
+        }
+        clicked = true;
+        
     })
     imgContainer[i].appendChild(image);
 }
