@@ -61,24 +61,19 @@ for (let i = 0; i<imgContainer.length;i++){
 }
 const carouselContainer = document.getElementById('carouselContainer');
 const images = ["./banner1.png","./banner2.jpg"];
-const image = document.createElement('img');
-image.src = images[0];
-image.style.height = "inherit";
-image.style.width = "inherit";
+carouselContainer.style.backgroundImage = `url("${images[0]}")`;
+
+carouselContainer.style.backgroundAttachment= "fixed";
+carouselContainer.style.backgroundPosition = "center";
+carouselContainer.style.backgroundRepeat = "no-repeat";
+carouselContainer.style.backgroundSize= "cover";
 let isOldImg = false;
-if (!carouselContainer.querySelector('img')){
-    carouselContainer.appendChild(image);
-}
 let carouselLoop = setInterval(() => { 
-    //console.log(image.src);
-    //console.log(images[1]);
-    if (!isOldImg){
-        image.src = images[1];
+    if(!isOldImg){
+        carouselContainer.style.backgroundImage = `url("${images[1]}")`;
         isOldImg = true;
     }else{
-        image.src = images[0];
+        carouselContainer.style.backgroundImage = `url("${images[0]}")`;
         isOldImg = false;
     }
-    
-    //console.log(image.src);
 }, 5000);
