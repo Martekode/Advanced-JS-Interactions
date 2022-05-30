@@ -17,18 +17,26 @@ const imgContainer = document.getElementsByClassName('image');
 console.log(imgContainer)
 for (let i = 0; i<imgContainer.length;i++){
     const image = document.createElement('img');
+    
     image.src = `./friends.jpg`;
     image.alt = "these are friends"
     image.classList.add('picture');
     image.addEventListener('click',function(){
         console.log(`jajaze ${i}`);
+        /*const p = document.createElement('p');
+        p.style.zIndex = "101";
+        p.innerText = `this is picture nr:${i} and they are friends.`;*/
         this.style.position = "absolute";
         this.style.transform = "scale(1.5)";
         this.style.zIndex = "100";
+        //console.log(image[1])
+        //image.appendChild(p);
         this.addEventListener('mouseout',function(){
             this.style.position = "relative";
             this.style.transform = "scale(1)";
             this.style.zIndex = "unset";
+            //console.log(this.p)
+            //this.removeChild(p);
         })
     })
     imgContainer[i].appendChild(image);
