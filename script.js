@@ -13,5 +13,16 @@ document.getElementById('darkModeBtn').addEventListener('click',function(){
         document.body.classList.remove('darkMode');
     }
 })
-
-
+const imgContainer = document.getElementsByClassName('image');
+console.log(imgContainer)
+for (let i = 0; i<imgContainer.length;i++){
+    const image = document.createElement('img');
+    image.src = `./friends.jpg`;
+    image.alt = "these are friends"
+    image.classList.add('picture');
+    image.addEventListener('click',function(){
+        console.log(`jajaze ${i}`);
+    })
+    imgContainer[i].appendChild(image);
+}
+console.log(imgContainer)
