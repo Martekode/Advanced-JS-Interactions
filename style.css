@@ -39,6 +39,7 @@ body{
 .box{
     border: 1px solid grey;
     height: 350px;
+    padding:0;
 }
 
 .carouselContainer{

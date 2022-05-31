@@ -179,15 +179,42 @@ runnerBox.addEventListener('mouseenter', function(){
         clearInterval(ruby);
     })
 })*/
+
+function updater(player , e , runner){
+    console.log('updating')
+    console.log(player.x , player.y);
+    console.log(runner.x , runner.y);
+    console.log(window.scrollY)
+    runner.div.style.transform = 'translateX('+runner.x+'px) translateY('+(runner.y)+'px)';
+}
 const runner = document.getElementsByClassName('runner')[0];
+
 document.getElementById('runnerBox').addEventListener('mousemove', function (e){
-    
-    if (runner.offsetLeft >= e.clientX){
-        //console.log('increasee x');
-    }else if (runner.offsetLeft <= e.clientX){
-        //console.log('decrease x')
-        runner.offsetLeft++;
-        runner.style.transform = 'translateX('+(runner.offsetLeft)+'px)';
+    const runnerBoxX = document.getElementById('runnerBox').getBoundingClientRect().left;
+    const runnerBoxY = document.getElementById('runnerBox').getBoundingClientRect().top;
+    const player = {
+        x: e.clientX,
+        y: e.clientY
     }
+    let runnerX = player.x - runnerBoxX - 25;
+    let runnerY = player.y - runnerBoxY - 25;
+    if (runnerX <= 0){
+        runnerX = 0;
+    }
+    else if(runnerX >= 1088){
+        runnerX = 1088;
+    }
+    else if (runnerY >= 298){
+        runnerY = 298;
+    }
+    else if (runnerY <= 0){
+        runnerY = 0;
+    }
+    const runner = {
+        x: runnerX,
+        y: runnerY,
+        div: document.getElementsByClassName('runner')[0]
+    }
+    updater(player, e , runner);
 }) 
 
