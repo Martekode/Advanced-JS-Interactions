@@ -180,41 +180,41 @@ runnerBox.addEventListener('mouseenter', function(){
     })
 })*/
 
-function updater(player , e , runner){
+function updater(player , e , chaser){
     console.log('updating')
     console.log(player.x , player.y);
-    console.log(runner.x , runner.y);
+    console.log(chaser.x , chaser.y);
     console.log(window.scrollY)
-    runner.div.style.transform = 'translateX('+runner.x+'px) translateY('+(runner.y)+'px)';
+    chaser.div.style.transform = 'translateX('+chaser.x+'px) translateY('+(chaser.y)+'px)';
 }
-const runner = document.getElementsByClassName('runner')[0];
+const chaser = document.getElementsByClassName('chaser')[0];
 
-document.getElementById('runnerBox').addEventListener('mousemove', function (e){
-    const runnerBoxX = document.getElementById('runnerBox').getBoundingClientRect().left;
-    const runnerBoxY = document.getElementById('runnerBox').getBoundingClientRect().top;
+document.getElementById('chaserBox').addEventListener('mousemove', function (e){
+    const chaserBoxX = document.getElementById('chaserBox').getBoundingClientRect().left;
+    const chaserBoxY = document.getElementById('chaserBox').getBoundingClientRect().top;
     const player = {
         x: e.clientX,
         y: e.clientY
     }
-    let runnerX = player.x - runnerBoxX - 25;
-    let runnerY = player.y - runnerBoxY - 25;
-    if (runnerX <= 0){
-        runnerX = 0;
+    let chaserX = player.x - chaserBoxX - 25;
+    let chaserY = player.y - chaserBoxY - 25;
+    if (chaserX <= 0){
+        chaserX = 0;
     }
-    else if(runnerX >= 1088){
-        runnerX = 1088;
+    else if(chaserX >= 1088){
+        chaserX = 1088;
     }
-    else if (runnerY >= 298){
-        runnerY = 298;
+    else if (chaserY >= 298){
+        chaserY = 298;
     }
-    else if (runnerY <= 0){
-        runnerY = 0;
+    else if (chaserY <= 0){
+        chaserY = 0;
     }
-    const runner = {
-        x: runnerX,
-        y: runnerY,
-        div: document.getElementsByClassName('runner')[0]
+    const chaser = {
+        x: chaserX,
+        y: chaserY,
+        div: document.getElementsByClassName('chaser')[0]
     }
-    updater(player, e , runner);
+    updater(player, e , chaser);
 }) 
 
