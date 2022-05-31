@@ -33,6 +33,7 @@ body{
     height: 50px;
     background: green;
     border-radius: 50%;
+    position: absolute;
 }
 
 .box{

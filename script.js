@@ -79,7 +79,7 @@ let carouselLoop = setInterval(() => {
 }, 5000);
 
 const pidgeot = document.getElementById('pidgeot');
-pidgeot.addEventListener('mouseover',function() {
+pidgeot.addEventListener('mouseenter',function() {
     const image = document.createElement('img');
     image.src = "./pidgeot.png";
     image.id = "pidgeotimg"
@@ -138,3 +138,56 @@ farfetched.addEventListener('mouseout',function() {
     this.removeChild(document.getElementById('farfetchedimg'));
 
 })
+/*let mouseX;
+let mouseY;
+const runnerBox = document.getElementById('runnerBox');
+function mousemove(event){
+    onsole.log("pageX: ",event.pageX, 
+    "pageY: ", event.pageY, 
+    "clientX: ", event.clientX, 
+    "clientY:", event.clientY)
+    mouseX = event.pageX;
+    mouseY = event.pageY;
+}
+
+window.addEventListener('mousemove', mousemove);
+const runner = document.getElementsByClassName('runner');
+
+runnerBox.addEventListener('mouseenter', function(){
+    let ruby = setInterval(() => {
+        let prey = {x : runner[0].offsetLeft, y : runner[0].offsetTop};
+        console.log(prey.x,prey.y,mouseX,mouseY);
+        if (mouseX+50 >= prey.x){
+            prey.x += 10;
+            runner[0].style.transform = 'translateX('+(prey.x)-'px)';
+            console.log(prey.x);
+        }
+        else if(mouseX < prey.x){
+            prey.x+= 10 ;
+            runner[0].style.transform = 'translateX('+(prey.x)+'px)';
+        }
+        else if(mouseY>prey.y){
+            prey.y-= 10 ;
+            runner[0].style.transform = 'translateY('+(prey.y)-'px)';
+        }
+        else if(mouseY<prey.y){
+            prey.y+=10;
+            runner[0].style.transform = 'translateY('+(prey.y)+'px)';
+        }
+    }, 30);
+    let sapphire = runnerBox.addEventListener('mouseout', function(){
+        clearInterval(ruby);
+    })
+})*/
+const runner = document.getElementsByClassName('runner')[0];
+document.getElementById('runnerBox').addEventListener('mousemove', function (e){
+    
+    if (runner.offsetLeft >= e.clientX){
+        //console.log('increasee x');
+    }else if (runner.offsetLeft <= e.clientX){
+        //console.log('decrease x')
+        runner.offsetLeft++;
+        runner.style.transform = 'translateX('+(runner.offsetLeft)+'px)';
+    }
+}) 
+
