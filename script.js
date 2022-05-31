@@ -219,24 +219,24 @@ document.getElementById('chaserBox').addEventListener('mousemove', function (e){
 }) 
 //runner
 
-function updater(player , e , runner){
+function updater(player , e , runner , runnerX , runnerY){
     console.log('updating')
     console.log(player.x , player.y);
     console.log(runner.x , runner.y);
     console.log(window.scrollY)
-    runner.div.style.transform = 'translateX('+runner.x+'px) translateY('+(runner.y)+'px)';
+    runner.div.style.transform = 'translateX('+runnerX+'px) translateY('+(runnerY)+'px)';
 }
 const runner = document.getElementsByClassName('runner')[0];
-
+let runnerX = 544;
+let runnerY = 150;
 document.getElementById('runnerBox').addEventListener('mousemove', function (e){
-    const runnerBoxX = document.getElementById('runnerBox').getBoundingClientRect().left;
-    const runnerBoxY = document.getElementById('runnerBox').getBoundingClientRect().top;
+    //const runnerBoxX = document.getElementById('runnerBox').getBoundingClientRect().left;
+    //const runnerBoxY = document.getElementById('runnerBox').getBoundingClientRect().top;
     const player = {
         x: e.clientX,
         y: e.clientY
     }
-    let runnerX = player.x - runnerBoxX - 25;
-    let runnerY = player.y - runnerBoxY - 25;
+    
     if (runnerX <= 0){
         runnerX = 0;
     }
@@ -249,10 +249,22 @@ document.getElementById('runnerBox').addEventListener('mousemove', function (e){
     else if (runnerY <= 0){
         runnerY = 0;
     }
+    else if(runnerX > player.x){
+        runnerX++;
+    }
+    else if(runnerX < player.x){
+        runnerX--;
+    }
+    else if(runnerY > player.y){
+        runnerY++;
+    }
+    else if(runnerY < player.y){
+        runnerY--;
+    }
     const runner = {
         x: runnerX,
         y: runnerY,
         div: document.getElementsByClassName('runner')[0]
     }
-    updater(player, e , runner);
+    updater(player, e , runner , runnerX , runnerY);
 }) 
