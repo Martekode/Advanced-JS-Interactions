@@ -77,3 +77,64 @@ let carouselLoop = setInterval(() => {
         isOldImg = false;
     }
 }, 5000);
+
+const pidgeot = document.getElementById('pidgeot');
+pidgeot.addEventListener('mouseover',function() {
+    const image = document.createElement('img');
+    image.src = "./pidgeot.png";
+    image.id = "pidgeotimg"
+    image.style.position = "absolute";
+    image.style.left = "50%";
+    this.appendChild(image);
+
+})
+pidgeot.addEventListener('mouseout',function() {
+    
+    this.removeChild(document.getElementById('pidgeotimg'));
+
+})
+const magikarp = document.getElementById('magikarp');
+magikarp.addEventListener('mouseover',function() {
+    const image = document.createElement('img');
+    image.src = "./magikarp.png";
+    image.id = "magikarpimg"
+    image.style.position = "absolute";
+    image.style.left = "50%";
+    this.appendChild(image);
+
+})
+magikarp.addEventListener('mouseout',function() {
+    
+    this.removeChild(document.getElementById('magikarpimg'));
+
+})
+const slowpoke = document.getElementById('slowpoke');
+slowpoke.addEventListener('mouseover',function() {
+    const image = document.createElement('img');
+    image.src = "./slowpoke.png";
+    image.id = "slowpokeimg"
+    image.style.position = "absolute";
+    image.style.left = "50%";
+    this.appendChild(image);
+
+})
+slowpoke.addEventListener('mouseout',function() {
+    
+    this.removeChild(document.getElementById('slowpokeimg'));
+
+})
+const farfetched = document.getElementById('farfetched');
+farfetched.addEventListener('mouseover',function() {
+    const image = document.createElement('img');
+    image.src = "./farfetched.png";
+    image.id = "farfetchedimg"
+    image.style.position = "absolute";
+    image.style.left = "50%";
+    this.appendChild(image);
+
+})
+farfetched.addEventListener('mouseout',function() {
+    
+    this.removeChild(document.getElementById('farfetchedimg'));
+
+})
