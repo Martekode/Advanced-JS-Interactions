@@ -180,7 +180,7 @@ runnerBox.addEventListener('mouseenter', function(){
     })
 })*/
 
-function updater(player , e , chaser){
+function laupdater(player , e , chaser){
     console.log('updating')
     console.log(player.x , player.y);
     console.log(chaser.x , chaser.y);
@@ -215,7 +215,7 @@ document.getElementById('chaserBox').addEventListener('mousemove', function (e){
         y: chaserY,
         div: document.getElementsByClassName('chaser')[0]
     }
-    updater(player, e , chaser);
+    laupdater(player, e , chaser);
 }) 
 //runner
 
@@ -230,8 +230,8 @@ const runner = document.getElementsByClassName('runner')[0];
 let runnerX = 544;
 let runnerY = 150;
 document.getElementById('runnerBox').addEventListener('mousemove', function (e){
-    //const runnerBoxX = document.getElementById('runnerBox').getBoundingClientRect().left;
-    //const runnerBoxY = document.getElementById('runnerBox').getBoundingClientRect().top;
+    const runnerBoxX = document.getElementById('runnerBox').getBoundingClientRect().left;
+    const runnerBoxY = document.getElementById('runnerBox').getBoundingClientRect().top;
     const player = {
         x: e.clientX,
         y: e.clientY
